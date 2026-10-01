@@ -1,0 +1,63 @@
+{
+    "dataset": "EuroSAT",
+    "source": "https://huggingface.co/datasets/Ehzoahis/EuroSAT",
+    "random_seed": 42,
+    "num_classes": 10,
+    "num_bands": 13,
+    "image_width": 64,
+    "image_height": 64,
+    "model_input_size": 224,
+    "train_images": 16200,
+    "validation_images": 5400,
+    "test_images": 5400,
+    "total_images": 27000,
+    "band_mean": [
+        1354.4054651331019,
+        1118.2439995810425,
+        1042.9298395302856,
+        947.626202980324,
+        1199.4728396116657,
+        1999.7909091374904,
+        2369.2229256486303,
+        2296.8260832308547,
+        732.0834017831307,
+        12.113278040002893,
+        1819.0102785463687,
+        1118.9239114945024,
+        2594.1408079849057
+    ],
+    "band_std": [
+        245.71762907843808,
+        333.00778264154405,
+        395.0924913916503,
+        593.7505558886336,
+        566.4170016995537,
+        861.1839900603321,
+        1086.631390746977,
+        1117.9817079077502,
+        404.9197888562917,
+        4.7758446836604795,
+        1002.5876831066728,
+        761.3032349896243,
+        1231.585810422304
+    ],
+    "classes": [
+        "AnnualCrop",
+        "Forest",
+        "HerbaceousVegetation",
+        "Highway",
+        "Industrial",
+        "Pasture",
+        "PermanentCrop",
+        "Residential",
+        "River",
+        "SeaLake"
+    ],
+    "split_method": "The official train, validation, and test splits supplied by the Hugging Face EuroSAT dataset were retained without additional random splitting.",
+    "split_percentages": {
+        "train": 60.0,
+        "validation": 20.0,
+        "test": 20.0
+    },
+    "leakage_prevention": "The supplied dataset splits were preserved. Exact duplicate files were checked across all three splits."
+}
