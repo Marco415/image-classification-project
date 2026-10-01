@@ -54,12 +54,12 @@ data/raw/EuroSAT.zip
 
 Extract it so that the directory structure becomes:
 
-data/
-└── raw/
-    └── EuroSAT/
-        ├── train/
-        ├── val/
-        └── test/
+    data/
+        └── raw/
+            └── EuroSAT/
+                ├── train/
+                ├── val/ 
+                └── test/
 
 
 
@@ -143,11 +143,11 @@ See KernelCreation.md
 
 Run the notebooks in this order:
 
-01_dataset_preparation.ipynb
-02_resnet50_training.ipynb
-03_efficientnetv2_training.ipynb
-04_vit_b16_training.ipynb
-05_final_evaluation.ipynb
+1. 01_dataset_preparation.ipynb
+2. 02_resnet50_training.ipynb
+3. 03_efficientnetv2_training.ipynb
+4. 04_vit_b16_training.ipynb
+5. 05_final_evaluation.ipynb
 
 
 The first notebook creates the train, validation and test split files.
