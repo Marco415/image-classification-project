@@ -44,7 +44,7 @@ data/processed/
 # Machine learning outputs
 # =========================================================
 
-models/
+models/resnet50_frozen_best.pth
 checkpoints/
 runs/
 wandb/
