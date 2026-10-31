@@ -61,6 +61,10 @@ Extract it so that the directory structure becomes:
                 ├── val/ 
                 └── test/
 
+Some archive versions include an additional `EuroSAT` directory, resulting in
+`data/raw/EuroSAT/EuroSAT/{train,val,test}`. The EfficientNetV2 notebook supports
+both layouts.
+
 
 
 ### Experimental Split
