@@ -31,6 +31,39 @@ NUM_CLASSES = len(CLASS_NAMES)
 NUM_BANDS = 13
 
 
+def resolve_image_path(image_path):
+    path = Path(image_path).expanduser()
+    project_root = Path(__file__).resolve().parents[1]
+    candidates = []
+
+    if path.is_absolute():
+        candidates.append(path)
+
+        parts = path.parts
+        for index in range(len(parts) - 1):
+            if (
+                parts[index].casefold() == "data"
+                and parts[index + 1].casefold() == "raw"
+            ):
+                candidates.append(
+                    project_root.joinpath(*parts[index:])
+                )
+                break
+    else:
+        candidates.append(project_root / path)
+
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+
+    checked_paths = ", ".join(str(candidate) for candidate in candidates)
+    raise FileNotFoundError(
+        f"EuroSAT image not found. Checked: {checked_paths}. "
+        "Download EuroSAT.zip and extract it under data/raw/EuroSAT "
+        "as described in README.md."
+    )
+
+
 def read_geotiff(path):
     """
     Read a 13-band EuroSAT GeoTIFF.
@@ -39,7 +72,7 @@ def read_geotiff(path):
         torch.Tensor with shape [13, H, W]
     """
 
-    path = str(path)
+    path = str(resolve_image_path(path))
 
     with rasterio.open(path) as src:
 

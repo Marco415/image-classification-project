@@ -1,5 +1,6 @@
 torch
 torchvision
+timm
 transformers
 datasets
 huggingface_hub
