@@ -89,7 +89,7 @@ Three different model families are compared:
 
 1. ResNet-50
 2. EfficientNetV2-S
-3. Vision Transformer B/16
+3. Custom CNN
 
 
 All three models use ImageNet pretrained weights and are adapted to accept the 13-band multispectral input.
@@ -150,7 +150,7 @@ Run the notebooks in this order:
 1. 01_dataset_preparation.ipynb
 2. 02_resnet50_training.ipynb
 3. 03_efficientnetv2_training.ipynb
-4. 04_vit_b16_training.ipynb
+4. 04_custom_cnn_training.ipynb
 5. 05_final_evaluation.ipynb
 
 

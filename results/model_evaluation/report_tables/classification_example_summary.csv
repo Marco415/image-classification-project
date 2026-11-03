@@ -1,0 +1,4 @@
+Model,Correct Examples,Incorrect Examples,Total Saved
+ResNet50,5,5,10
+EfficientNetV2,5,5,10
+Custom_CNN,5,5,10

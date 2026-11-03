@@ -1,0 +1,7 @@
+Model,Prediction Type,Mean Confidence,Median Confidence,Number of Predictions
+ResNet50,Correct,0.9935261,0.9998822,5333
+ResNet50,Incorrect,0.8023383,0.8575095,67
+EfficientNetV2,Correct,0.99377066,0.9999958,5316
+EfficientNetV2,Incorrect,0.826258,0.88761175,84
+Custom_CNN,Correct,0.98045003,0.99844724,5269
+Custom_CNN,Incorrect,0.74681437,0.7471686,131

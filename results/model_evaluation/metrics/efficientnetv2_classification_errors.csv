@@ -1,0 +1,30 @@
+Actual Class,Predicted Class,Count
+Pasture,Herbaceous Vegetation,10
+Permanent Crop,Herbaceous Vegetation,7
+Annual Crop,Pasture,7
+Herbaceous Vegetation,Pasture,6
+Industrial Buildings,Residential Buildings,6
+Pasture,Forest,5
+Permanent Crop,Annual Crop,5
+River,Highway,5
+Forest,Herbaceous Vegetation,4
+Annual Crop,Permanent Crop,3
+Highway,Residential Buildings,2
+Highway,Herbaceous Vegetation,2
+Forest,Pasture,2
+Permanent Crop,Pasture,2
+Herbaceous Vegetation,Forest,2
+Pasture,Annual Crop,2
+Highway,River,2
+Annual Crop,SeaLake,1
+Highway,Annual Crop,1
+Herbaceous Vegetation,Annual Crop,1
+Forest,Annual Crop,1
+Herbaceous Vegetation,Permanent Crop,1
+Pasture,River,1
+Industrial Buildings,Highway,1
+Pasture,Highway,1
+Permanent Crop,Industrial Buildings,1
+Permanent Crop,River,1
+Residential Buildings,Highway,1
+River,SeaLake,1

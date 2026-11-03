@@ -6,8 +6,6 @@ from torchvision.models import (
     ResNet50_Weights,
     efficientnet_v2_s,
     EfficientNet_V2_S_Weights,
-    vit_b_16,
-    ViT_B_16_Weights,
 )
 
 
@@ -138,42 +136,6 @@ def create_efficientnetv2(
 
     return model
 
-
-def create_vit(
-    num_classes=NUM_CLASSES,
-    input_channels=NUM_BANDS
-):
-
-    model = vit_b_16(
-        weights=ViT_B_16_Weights.DEFAULT
-    )
-
-    old_projection = (
-        model.conv_proj
-    )
-
-    new_projection = nn.Conv2d(
-        input_channels,
-        old_projection.out_channels,
-        kernel_size=old_projection.kernel_size,
-        stride=old_projection.stride,
-        padding=old_projection.padding,
-        bias=False
-    )
-
-    initialise_multispectral_conv(
-        old_projection.weight,
-        new_projection.weight
-    )
-
-    model.conv_proj = new_projection
-
-    model.heads.head = nn.Linear(
-        model.heads.head.in_features,
-        num_classes
-    )
-
-    return model
 
 class CustomCNN(nn.Module):
     """
