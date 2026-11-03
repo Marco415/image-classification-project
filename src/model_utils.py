@@ -174,3 +174,44 @@ def create_vit(
     )
 
     return model
+
+class CustomCNN(nn.Module):
+    """
+    Small VGG-style CNN trained from scratch (no pretrained weights).
+    4 blocks of [Conv-BN-ReLU x2 -> MaxPool], global average pooling, dropout, linear.
+    Input: [B, 13, 64, 64]  ->  Output: [B, num_classes]
+    """
+
+    def __init__(self, num_classes=NUM_CLASSES, input_channels=NUM_BANDS, dropout=0.3):
+        super().__init__()
+
+        def block(in_c, out_c):
+            return nn.Sequential(
+                nn.Conv2d(in_c, out_c, kernel_size=3, padding=1, bias=False),
+                nn.BatchNorm2d(out_c),
+                nn.ReLU(inplace=True),
+                nn.Conv2d(out_c, out_c, kernel_size=3, padding=1, bias=False),
+                nn.BatchNorm2d(out_c),
+                nn.ReLU(inplace=True),
+                nn.MaxPool2d(2),
+            )
+
+        self.features = nn.Sequential(
+            block(input_channels, 32),   # 64 -> 32
+            block(32, 64),               # 32 -> 16
+            block(64, 128),              # 16 -> 8
+            block(128, 256),             # 8  -> 4
+        )
+        self.pool = nn.AdaptiveAvgPool2d(1)
+        self.classifier = nn.Sequential(
+            nn.Flatten(),
+            nn.Dropout(dropout),
+            nn.Linear(256, num_classes),
+        )
+
+    def forward(self, x):
+        return self.classifier(self.pool(self.features(x)))
+
+
+def create_custom_cnn(num_classes=NUM_CLASSES, input_channels=NUM_BANDS):
+    return CustomCNN(num_classes=num_classes, input_channels=input_channels)
