@@ -1,0 +1,30 @@
+{
+  "config": {
+    "model": "CustomCNN (4 conv blocks, from scratch, no pretrained weights)",
+    "input_size": 64,
+    "batch_size": 64,
+    "accumulation_steps": 1,
+    "epochs": 10,
+    "patience": 11,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "scheduler": "CosineAnnealingLR(T_max=40)",
+    "loss": "CrossEntropyLoss",
+    "class_weights": null,
+    "dropout": 0.3,
+    "seed": 42
+  },
+  "test_metrics": {
+    "accuracy": 0.9757407407407407,
+    "macro_precision": 0.9751323479929088,
+    "macro_recall": 0.9743508776785509,
+    "macro_f1": 0.9746487118273626,
+    "weighted_f1": 0.9757105020783909,
+    "balanced_accuracy": 0.9743508776785509
+  },
+  "parameters": 1178666,
+  "checkpoint_mb": 4.740237,
+  "ms_per_image": 1.4059709474074007,
+  "best_epoch": 10
+}
